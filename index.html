@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASMJS 1</title>
+</head>
+
+<body>
+    <h3>Thông tin</h3>
+    <div id="thongTin">
+        <p id="name"></p>
+        <p id="city"></p>
+        <p id="phoneNumber"></p>
+        <p id="age"></p>
+    </div>
+
+    <button id="nut" onclick="show()">Ẩn</button>
+    <script>
+        var userName = document.getElementById("name");
+        var city = document.getElementById("city");
+        var phoneNumber = document.getElementById("phoneNumber");
+        var age = document.getElementById("age");
+        alert("Hế lô, đây là bài javascript của Kha");
+        var nameInput = prompt("Hãy nhập tên của bạn:");
+        userName.innerHTML = "Tên: " + nameInput;
+        var cityInput = prompt("Hãy nhập thành phố của bạn:");
+        city.innerHTML = "Thành phố: " + cityInput;
+        var phoneNumberInput = prompt("Hãy nhập số điện thoại của bạn:");
+        phoneNumber.innerHTML = "Sđt: " + phoneNumberInput;
+        var yeuCauNhap = true;
+        while (yeuCauNhap) {
+            var namSinh = prompt("Hãy nhập năm sinh của bạn:");
+            var now = new Date().getFullYear();
+            if (namSinh > now) {
+                alert("Xạo xạo quen, mới năm " + now + ". Nhập lại đi!!!");
+            } else {
+                age.innerHTML = "Tuổi: " + (now - namSinh);
+                yeuCauNhap = false;
+            }
+        }
+        function show() {
+            var nut = document.getElementById("nut");
+            var thongTin = document.getElementById("thongTin");
+            if (nut.innerHTML == "Ẩn") {
+                thongTin.style.display = "none";
+                nut.innerHTML = "Hiện";
+            } else {
+                thongTin.style.display = "block";
+                nut.innerHTML = "Ẩn";
+            }
+        }
+
+    </script>
+</body>
+
+</html>
