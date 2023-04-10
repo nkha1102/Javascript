@@ -5,54 +5,44 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ASMJS 1</title>
+    <link rel="stylesheet" href="index.css">
+    <script src="index.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <title>ASMJS 3</title>
 </head>
 
 <body>
-    <h3>Thông tin</h3>
-    <div id="thongTin">
-        <p id="name"></p>
-        <p id="city"></p>
-        <p id="phoneNumber"></p>
-        <p id="age"></p>
-    </div>
-
-    <button id="nut" onclick="show()">Ẩn</button>
+    <ul class="thongTin">
+        <li>Tên: <input type="text" id="name"></li>
+        <li>Ngày sinh: <input type="text" id="DOB"></li>
+        <li>Điểm Toán: <input type="text" id="diemToan"></li>
+        <li>Điểm Lý: <input type="text" id="diemLy"></li>
+        <li>Điểm Hóa: <input type="text" id="diemHoa"></li>
+    </ul>
+    <br>
+    <button class="add">Thêm</button>
+    <button class="avg">Tính điểm trung bình</button>
+    <button class="hocLuc">Xác định học lực</button>
+    <br><br>
+    <table border="1" width="100%">
+        <thead>
+            <tr>
+                <th width="20%">Họ và tên</th>
+                <th width="20%">Ngày sinh</th>
+                <th width="10%">Điểm Toán</th>
+                <th width="10%">Điểm Lý</th>
+                <th width="10%">Điểm Hóa</th>
+                <th width="15%">Điểm trung bình</th>
+                <th width="15%">Học lực</th>
+            </tr>
+        </thead>
+        <tbody id="mid"></tbody>
+    </table>
     <script>
-        var userName = document.getElementById("name");
-        var city = document.getElementById("city");
-        var phoneNumber = document.getElementById("phoneNumber");
-        var age = document.getElementById("age");
-        alert("Hế lô, đây là bài javascript của Kha");
-        var nameInput = prompt("Hãy nhập tên của bạn:");
-        userName.innerHTML = "Tên: " + nameInput;
-        var cityInput = prompt("Hãy nhập thành phố của bạn:");
-        city.innerHTML = "Thành phố: " + cityInput;
-        var phoneNumberInput = prompt("Hãy nhập số điện thoại của bạn:");
-        phoneNumber.innerHTML = "Sđt: " + phoneNumberInput;
-        var yeuCauNhap = true;
-        while (yeuCauNhap) {
-            var namSinh = prompt("Hãy nhập năm sinh của bạn:");
-            var now = new Date().getFullYear();
-            if (namSinh > now) {
-                alert("Xạo xạo quen, mới năm " + now + ". Nhập lại đi!!!");
-            } else {
-                age.innerHTML = "Tuổi: " + (now - namSinh);
-                yeuCauNhap = false;
-            }
-        }
-        function show() {
-            var nut = document.getElementById("nut");
-            var thongTin = document.getElementById("thongTin");
-            if (nut.innerHTML == "Ẩn") {
-                thongTin.style.display = "none";
-                nut.innerHTML = "Hiện";
-            } else {
-                thongTin.style.display = "block";
-                nut.innerHTML = "Ẩn";
-            }
-        }
-
+        var index = 1;
+        $(".add").on("click", add);
+        $(".avg").on("click", average);
+        $(".hocLuc").on("click", hocLuc);
     </script>
 </body>
 
