@@ -1,3 +1,4 @@
+var index = 1;
 function add() {
     let tbody = $("#mid");
     let tr = $("<tr>");
@@ -17,11 +18,11 @@ function add() {
     tr.append(tdDiemHoa);
     tr.append(tdDiemTrungBinh);
     tr.append(tdHocLuc);
-    tdDiemToan.addClass("dToan" + index);
-    tdDiemLy.addClass("dLy" + index);
-    tdDiemHoa.addClass("dHoa" + index);
-    tdDiemTrungBinh.addClass("dTb" + index);
-    tdHocLuc.addClass("hl" + index);
+    tdDiemToan.attr("id","dToan" + index);
+    tdDiemLy.attr("id","dLy" + index);
+    tdDiemTrungBinh.attr("id","dTb" + index);
+    tdHocLuc.attr("id","hl" + index);
+    tdDiemHoa.attr("id", "dHoa" + index);
     index = index + 1;
     let tenInput = $("#name");
     let ngaySinhInput = $("#DOB");
@@ -36,18 +37,18 @@ function add() {
     }
 function average() {
     for (let i = 1; i < index; i++) {
-        let toan = $(".dToan" + i);
-        let ly = $(".dLy" + i);
-        let hoa = $(".dHoa" + i);
-        let tb = $(".dTb" + i);
+        let toan = $("#dToan" + i);
+        let ly = $("#dLy" + i);
+        let hoa = $("#dHoa" + i);
+        let tb = $("#dTb" + i);
         let diemTB = (toan.text() - (-ly.text()) - (-hoa.text())) / 3;
         tb.text(diemTB.toFixed(2));
     }
 }
 function hocLuc() {
     for (let i = 1; i < index; i++) {
-        let tb = $(".dTb" + i);
-        let hl = $(".hl" + i);
+        let tb = $("#dTb" + i);
+        let hl = $("#hl" + i);
         if (tb.text() >= 8) {
             hl.text("Giỏi");
         } else if (tb.text() < 8 && tb.text() >= 5) {

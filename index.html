@@ -20,9 +20,9 @@
         <li>Điểm Hóa: <input type="text" id="diemHoa"></li>
     </ul>
     <br>
-    <button class="add">Thêm</button>
-    <button class="avg">Tính điểm trung bình</button>
-    <button class="hocLuc">Xác định học lực</button>
+    <button id="add">Thêm</button>
+    <button id="avg">Tính điểm trung bình</button>
+    <button id="hocLuc">Xác định học lực</button>
     <br><br>
     <table border="1" width="100%">
         <thead>
@@ -39,10 +39,9 @@
         <tbody id="mid"></tbody>
     </table>
     <script>
-        var index = 1;
-        $(".add").on("click", add);
-        $(".avg").on("click", average);
-        $(".hocLuc").on("click", hocLuc);
+        $("#add").on("click", add);
+        $("#avg").on("click", average);
+        $("#hocLuc").on("click", hocLuc);
     </script>
 </body>
 
