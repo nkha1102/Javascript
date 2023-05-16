@@ -1,16 +1,16 @@
 var index = 1;
 function add() {
-    var tbody = document.getElementById("mid");
-    var tr = document.createElement("tr");
+    let tbody = document.getElementById("mid");
+    let tr = document.createElement("tr");
     tbody.append(tr);
     tr.id = index;
-    var tdHoTen = document.createElement("td");
-    var tdNgaySinh = document.createElement("td");
-    var tdDiemToan = document.createElement("td");
-    var tdDiemLy = document.createElement("td");
-    var tdDiemHoa = document.createElement("td");
-    var tdDiemTrungBinh = document.createElement("td");
-    var tdHocLuc = document.createElement("td");
+    let tdHoTen = document.createElement("td");
+    let tdNgaySinh = document.createElement("td");
+    let tdDiemToan = document.createElement("td");
+    let tdDiemLy = document.createElement("td");
+    let tdDiemHoa = document.createElement("td");
+    let tdDiemTrungBinh = document.createElement("td");
+    let tdHocLuc = document.createElement("td");
     tr.append(tdHoTen);
     tr.append(tdNgaySinh);
     tr.append(tdDiemToan);
@@ -24,13 +24,13 @@ function add() {
     tdDiemTrungBinh.id = "dTb"+index;
     tdHocLuc.id = "hl"+index;
     index = index + 1;
-    var tenInput = document.getElementById("name");
-    var ngaySinhInput = document.getElementById("DOB");
-    var diemToanInput = document.getElementById("diemToan");
-    var diemLyInput = document.getElementById("diemLy");
-    var diemHoaInput = document.getElementById("diemHoa");
+    let tenInput = document.getElementById("name");
+    let ngaySinhInput = document.getElementById("DOB");
+    let diemToanInput = document.getElementById("diemToan");
+    let diemLyInput = document.getElementById("diemLy");
+    let diemHoaInput = document.getElementById("diemHoa");
     tdHoTen.innerHTML = tenInput.value;
-    tdNgaySinh.innerHTML = ngaySinhInput.value;
+    tdNgaySinh.innerHTML = ngaySinhInput.value; 
     tdDiemToan.innerHTML = diemToanInput.value;
     tdDiemLy.innerHTML = diemLyInput.value;
     tdDiemHoa.innerHTML = diemHoaInput.value;
@@ -41,7 +41,7 @@ function average() {
         let ly = document.getElementById("dLy" + i);
         let hoa = document.getElementById("dHoa" + i);
         let tb = document.getElementById("dTb" + i);
-        var diemTB = (toan.innerHTML - (-ly.innerHTML) - (-hoa.innerHTML))/3;
+        let diemTB = (toan.innerHTML - (-ly.innerHTML) - (-hoa.innerHTML))/3;
         tb.innerHTML = diemTB.toFixed(2);
     }
 }
@@ -53,7 +53,7 @@ function hocLuc() {
             hl.innerHTML = "Giỏi"
         } else if (tb.innerHTML < 8 && tb.innerHTML > 5) {
             hl.innerHTML = "Khá"
-        } else if (tb.innerHTML < 5 && tb.innerHTML > 3) {
+        } else if (tb.innerHTML <= 5 && tb.innerHTML >= 3) {
             hl.innerHTML = "Trung Bình"
         } else {
             hl.innerHTML = "Yếu"
